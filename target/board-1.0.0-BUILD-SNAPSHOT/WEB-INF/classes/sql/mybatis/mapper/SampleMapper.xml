@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample">
+
+	<select id="getToday" resultType="string">
+	    select now() as today
+    </select>
+       
+    <insert id="insertData1" parameterType="string">
+    	insert into tmp1 values (#{no})
+    </insert>
+    
+    <insert id="insertData2" parameterType="string">
+    	insert into tmp2 values (#{id})
+    </insert>  
+    
+	<select id="getLogin" parameterType="string" resultType="map">
+		select * from tmp2 where id = #{username}
+	</select>    
+</mapper>

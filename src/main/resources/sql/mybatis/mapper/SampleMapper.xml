@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample">
+
+	<select id="getToday" resultType="string">
+	    select now() as today
+    </select>
+       
+    <insert id="insertData1" parameterType="string">
+    	insert into tmp1 values (#{no})
+    </insert>
+    
+    <insert id="insertData2" parameterType="string">
+    	insert into tmp2 values (#{id})
+    </insert>  
+    
+	<select id="getLogin" parameterType="string" resultType="map">
+		select * from pnt_user where email = #{userid}
+	</select>    
+	
+	<select id="getSampleDBList" resultType="map">
+		select 'abc' as id
+		union all
+		select 'bbb' as id
+	</select>
+	
+	<insert id="batchInsert" parameterType="list">
+		insert into tmp1 (postcd, sido, dong, etc, etc2, etc3) values 
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+		    #{item}
+		</foreach>
+	</insert>
+	
+	<insert id="load_ublk" parameterType="string">
+		LOAD DATA LOCAL INFILE #{path} INTO TABLE tmp1 
+		FIELDS TERMINATED BY ','  (postcd, sido, dong, etc, etc2, etc3) 
+	</insert>
+</mapper>

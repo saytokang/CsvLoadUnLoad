@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="a.b.c.d.sample.01">already exist for the {0}.</entry>
+	<entry key="a.b.c.d.sample.02">It's a sample message.</entry>
+</properties>
